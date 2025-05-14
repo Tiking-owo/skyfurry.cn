@@ -1,0 +1,816 @@
+/* 基础重置与变量定义 */
+:root {
+    --primary: #0066ff;
+    --primary-light: #4d94ff;
+    --primary-dark: #0047b3;
+    --dark: #0a0a0a;
+    --darker: #050505;
+    --light: #f8f9fa;
+    --lighter: #ffffff;
+    --gray: #1e1e1e;
+    --gray-light: #2a2a2a;
+}
+
+* {
+
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--dark);
+    color: var(--light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* 全局过渡效果 */
+a, button, .glass-card {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 布局样式 */
+.section {
+    padding: 100px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    animation: fadeIn 1s ease both;
+}
+
+.section:nth-child(1) { animation-delay: 0.1s; }
+.section:nth-child(2) { animation-delay: 0.2s; }
+.section:nth-child(3) { animation-delay: 0.3s; }
+.section:nth-child(4) { animation-delay: 0.4s; }
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: clamp(2rem, 6vw, 2.8rem);
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #fff, #aaa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-header p {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    color: var(--primary-light);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* 玻璃拟态效果 */
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+}
+
+/* 图片容器 */
+.img-container {
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.img-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 1s ease;
+}
+
+.img-container:hover img {
+    transform: scale(1.05);
+}
+
+/* 导航栏 */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.nav-logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--light);
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--light);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.4s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-light);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* 按钮样式 */
+.cta-button {
+    position: relative;
+    overflow: hidden;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.cta-button.primary {
+    background: var(--primary);
+    color: var(--light);
+}
+
+.cta-button.secondary {
+    background: transparent;
+    color: var(--light);
+    border: 2px solid var(--primary);
+}
+
+.cta-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--primary), var(--primary-light));
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.6s cubic-bezier(0.5, 1, 0.89, 1);
+    border-radius: 50px;
+}
+
+.cta-button:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.cta-button.secondary::after {
+    background: rgba(0, 102, 255, 0.1);
+}
+
+/* 英雄区域 - 移动端文字在图片中央 */
+.hero-section {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 120px 40px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+    padding-right: 60px;
+    z-index: 2;
+}
+
+.hero-product {
+    flex: 1;
+    border-radius:10px;
+    max-width: 600px;
+    aspect-ratio: 1/1;
+    position: relative;
+}
+
+/* 移动端布局 - 文字在图片中央 */
+@media (max-width: 1024px) {
+    .hero-section {
+        display: block;
+        padding: 80px 0 0;
+        min-height: 80vh;
+    }
+
+    .hero-product {
+        width: 100%;
+        max-width: 100%;
+        aspect-ratio: 9/16;
+    }
+
+    .hero-product::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4); /* 图片遮罩使文字更清晰 */
+    }
+
+    .hero-product img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.8; /* 图片半透明 */
+    }
+
+    .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 100%;
+        padding: 20px;
+        text-align: center;
+        background: transparent;
+        z-index: 3;
+    }
+
+    .hero-cta {
+        justify-content: center;
+        margin-top: 30px;
+    }
+}
+
+/* 小屏幕调整 */
+@media (max-width: 480px) {
+    .hero-content {
+        width: 95%;
+        padding: 15px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+    
+    .hero-subtitle {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+}
+
+/* 产品概览 */
+.overview-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.feature-card {
+    padding: 40px 30px;
+    border-radius: 16px;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 32px rgba(0, 102, 255, 0.2);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--light);
+}
+
+.feature-card p {
+    color: #aaaaaa;
+}
+
+/* 设计部分 */
+.design-section {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.design-content {
+    flex: 1;
+}
+
+.design-visual {
+    flex: 1;
+    max-width: 500px;
+}
+
+.design-highlights {
+    margin-top: 40px;
+}
+
+.design-point {
+    margin-bottom: 30px;
+    position: relative;
+    padding-left: 50px;
+}
+
+.highlight-number {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    opacity: 0.3;
+}
+
+.design-point h4 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--light);
+}
+
+.design-point p {
+    color: #aaaaaa;
+}
+
+
+.tech-features {
+    margin-top: 60px;
+}
+
+.tech-feature {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 80px;
+}
+
+.tech-image-container {
+    flex: 1;
+    aspect-ratio: 16/9;
+}
+
+.tech-content {
+    flex: 1;
+    padding: 40px;
+}
+
+.tech-content h3 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin-bottom: 20px;
+    color: var(--light);
+}
+
+.tech-content p {
+    color: #aaaaaa;
+    max-width: 500px;
+}
+
+/* 规格部分 */
+.specs-container {
+    padding: 40px;
+    margin-top: 60px;
+    width:80%;
+    margin:auto
+}
+
+
+.specs-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.spec-row {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.spec-row:last-child {
+    border-bottom: none;
+}
+
+.spec-name, .spec-value {
+    padding: 15px 0;
+    text-align: left;
+}
+
+.spec-name {
+    color: #aaaaaa;
+    width: 40%;
+}
+
+.spec-value {
+    color: var(--light);
+    font-weight: 600;
+    word-break:break-all;
+    word-wrap:break-word
+}
+
+/* CTA部分 */
+.cta-section {
+    text-align: center;
+    padding: 120px 20px;
+}
+
+.cta-content {
+    padding: 60px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-content h2 {
+    font-size: clamp(2rem, 6vw, 2.8rem);
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #fff, #aaa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cta-content p {
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    margin-bottom: 40px;
+    color: var(--primary-light);
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* 页脚 */
+.footer {
+    background: var(--darker);
+    padding: 80px 20px 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+.footer-logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--light);
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-links a {
+    color: #aaaaaa;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: var(--primary-light);
+}
+
+.footer-social {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-social a {
+    color: #aaaaaa;
+    font-size: 1.5rem;
+}
+
+.footer-social a:hover {
+    color: var(--primary-light);
+}
+
+.footer-copyright {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #666666;
+}
+
+/* 动画 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+    .design-section, .tech-feature {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .design-content, .tech-content {
+        order: 1;
+    }
+    
+    .design-visual, .tech-image-container {
+        order: 2;
+        max-width: 70%;
+    }
+    
+    .hero-product {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: var(--darker);
+        flex-direction: column;
+        padding: 30px;
+        gap: 20px;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-mobile-toggle {
+        display: block;
+    }
+    
+    .hero-section {
+        flex-direction: column;
+        padding-top: 100px;
+        text-align: center;
+    }
+    
+    .hero-content {
+        margin-bottom: 60px;
+    }
+    
+    .hero-cta {
+        justify-content: center;
+    }
+    
+    .hero-product {
+        max-width: 100%;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-button.primary, .cta-button.secondary {
+        width: 45%;
+        max-width: 300px;
+    }
+    
+    .tech-content {
+        padding: 30px 20px;
+    }
+}
+
+.floating-img{
+    width:100%
+}
+
+.xh2{
+    text-align: center;
+    font-size:clamp(2rem, 6vw, 2rem)
+}
+.xh1{
+    height:35px;
+    font-size:clamp(2rem, 6vw, 3rem)
+}
+.xa{
+    text-decoration:none;
+    color:#666666
+}
+.xa:hover{
+    color: red
+}
+
+/* 轮播组件样式 */
+.carousel-section {
+    padding: 80px 20px;
+    margin: 40px 0;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.carousel-slide {
+    min-width: 100%;
+    position: relative;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-btn:hover {
+    background: var(--primary);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+    left: 20px;
+}
+
+.next-btn {
+    right: 20px;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: var(--primary);
+    transform: scale(1.2);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .carousel-slide img {
+        height: 300px;
+    }
+    
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
+
+.xp{
+    height:35px
+}
+
+.spaced-link {
+    margin-right: 20px;
+}
+
+a.aki-btn {
+    text-decoration: none;
+    line-height: 1;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 160px;
+    height: 46px;
+    background: linear-gradient(90deg, #ad6eca, #3b91d8);
+    border-radius: 8px;
+    font-size: 16px;
+    color: #ffffff;
+    overflow: hidden;
+    position: relative;
+}
+
+a.aki-btn span.icon,
+a.aki-btn span.txt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    transition: all 0.5s ease;
+    z-index: 2;
+    backface-visibility: hidden;
+}
+
+a.aki-btn span.txt {
+    transform: rotateY(0deg);
+}
+
+a.aki-btn span.icon {
+    transform: rotateY(-180deg);
+}
+
+a.aki-btn span.icon svg {
+    width: 30px;
+    fill: #fff;
+}
+
+a.aki-btn:hover span.txt {
+    transform: rotateY(-180deg);
+}
+
+a.aki-btn:hover span.icon {
+    transform: rotateY(0deg);
+}
+
+
+.beian {
+	display: inline;
+	width: 18px;
+    padding-top:2px;
+    margin-bottom: -3px;
+}
+

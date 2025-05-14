@@ -1,167 +1,198 @@
-<!DOCTYPE HTML>
-<!--
-	Spectral by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>天兽汇 | SkyFurry™</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="landing is-preload">
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://www.skyfurry.cn/skyfurry.jpg">
+    <title>天兽汇SkyFurry</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">SkyFurry</div>
+            <div class="nav-links">
+                <a href="#overview">概览</a>
+                <a href="#design">设计</a>
+                <a href="#technology">外观</a>
+                <a href="#specs">规格</a>
+                <button class="cta-button">微店店铺主页</button>
+            </div>
+            <button class="nav-mobile-toggle" aria-label="菜单">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- 英雄区域 -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title xh1">兽装风扇</h1>
+            <p class="hero-subtitle xp">SkyFurry x 德沃洛普工作室</p>
+            <div class="hero-cta">
+                <a href="javascript:;" class="aki-btn">
+                    <span class="txt">前往微店购买</span>
+                    <span class="icon"><svg t="1691995071208" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                              xmlns="http://www.w3.org/2000/svg" p-id="2968" width="200" height="200">
+                              <path d="M729.6 448H128v85.333333h601.6L597.333333 665.6l59.733334 59.733333 234.666666-234.666666L661.333333 256l-59.733333 59.733333 128 132.266667z" p-id="2969"></path>
+                          </svg></span>
+                  </a>
+                
+            </div>
+        </div>
+        <div class="hero-product">
+            <img src="images/product.png" alt="NEXUS X智能手机" class="floating-img" >
+        </div>
+    </section>
+    
+    <!-- 产品概览 -->
+    <section id="overview" class="section overview-section">
+        <div class="section-header">
+            <h2>重新定义可能</h2>
+            <p>xwx</p>
+        </div>
+        
+        <div class="overview-features">
+            <div class="feature-card glass-card">
+                <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                <h3>充电时间</h3>
+                <p>DC 12v只需要1145h即可充满</p>
+            </div>
+            <div class="feature-card glass-card">
+                <div class="feature-icon"><i class="fas fa-fan"></i></div>
+                <h3>风扇转速</h3>
+                <p>14万转暴力风扇</p>
+            </div>
+            <div class="feature-card glass-card">
+                <div class="feature-icon"><i class="fas fa-battery-full"></i></div>
+                <h3>电池续航</h3>
+                <p>搭载8000mAh大电池，续航4小时</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 设计部分 -->
+    <section id="design" class="section design-section">
+        <div class="design-content">
+            <h2>美学与功能的完美融合</h2>
+            <p>无设计，无手感</p>
+            <div class="design-highlights">
+                <div class="design-point">
+                    <span class="highlight-number">01</span>
+                    <h4>3D打印外壳</h4>
+                    <p>轻盈坚固，散热堪忧</p>
+                </div>
+                <div class="design-point">
+                    <span class="highlight-number">02</span>
+                    <h4>高转速电机</h4>
+                    <p>吹倒一群兽兽</p>
+                </div>
+            </div>
+        </div>
+        <div class="design-visual img-container">
+            <img src="images/product.png" alt="NEXUS X设计展示" loading="lazy">
+        </div>
+    </section>
+    
+<!-- 图片轮播组件 -->
+<section id="technology" class="carousel-section">
+    <div class="carousel-container">
+        <button class="carousel-btn prev-btn" aria-label="上一张">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        
+        <div class="carousel-track">
+            <div class="carousel-slide active">
+                <img src="images/slide1.jpg" alt="产品展示1" loading="lazy">
+            </div>
+            <div class="carousel-slide">
+                <img src="images/slide2.jpg" alt="产品展示2" loading="lazy">
+            </div>
+            <div class="carousel-slide">
+                <img src="images/slide3.jpg" alt="产品展示3" loading="lazy">
+            </div>
+        </div>
+        
+        <button class="carousel-btn next-btn" aria-label="下一张">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+    
+    <div class="carousel-dots">
+        <!-- 指示点将通过JS动态生成 -->
+    </div>
+</section>
+    
+    <!-- 规格部分 -->
+    <section id="specs" class="section specs-section">
+        <div class="specs-header">
+            <h1 class="xh2">技术规格</h1>
+        </div>
+        
+        <div class="specs-container glass-card">
+            <table class="specs-table">
+                <tr class="spec-row">
+                    <td class="spec-name">电机</td>
+                    <td class="spec-value">14万转暴力风扇</td>
+                </tr>
+                <tr class="spec-row">
+                    <td class="spec-name">电池容量</td>
+                    <td class="spec-value">8000mAh</td>
+                </tr>
+                <tr class="spec-row">
+                    <td class="spec-name">重量</td>
+                    <td class="spec-value">1145g</td>
+                </tr>
+                <tr class="spec-row">
+                    <td class="spec-name">输入功率</td>
+                    <td class="spec-value">12v 2A</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+    
+    <!-- 购买CTA -->
+    <section class="section cta-section">
+        <div class="cta-content">
+            <h2>准备好体验了吗？</h2>
+            <p>xxx现已开放预订</p>
+            <div class="cta-buttons">
+                <a href="javascript:;" class="aki-btn">
+                    <span class="txt">前往微店购买</span>
+                    <span class="icon"><svg t="1691995071208" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                              xmlns="http://www.w3.org/2000/svg" p-id="2968" width="200" height="200">
+                              <path d="M729.6 448H128v85.333333h601.6L597.333333 665.6l59.733334 59.733333 234.666666-234.666666L661.333333 256l-59.733333 59.733333 128 132.266667z" p-id="2969"></path>
+                          </svg></span>
+                  </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">SkyFurry x 德沃洛普工作室</div>
+            <div class="footer-links"><p>
+                <a class="spaced-link" href="#">使用条款</a>
+                <a class="spaced-link" href="#">销售政策</a>
+                <a class="spaced-link" href="#">法律信息</a>
+                </p>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="QQ"><i class="fab fa-qq"></i></a>
+                <a href="#" aria-label="微信"><i class="fab fa-weixin"></i></a>
+                <a href="#" aria-label="哔哩哔哩"><i class="fab fa-bilibili"></i></a>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p class="copyright-footer" id="copyright-footer">
+                <!-- 内容将由JavaScript动态生成 -->
+            </p>
+        </div>
+    </footer>
 
-		<!-- Page Wrapper -->
-			<div id="page-wrapper">
-
-				<!-- Header -->
-					<header id="header" class="alt">
-						<h1><a href="index.html">SkyFurry</a></h1>
-						<nav id="nav">
-							<ul>
-								<li class="special">
-									<a href="#menu" class="menuToggle"><span>菜单</span></a>
-									<div id="menu">
-										<ul>
-											<li><a href="index.html">主页</a></li>
-											<li><a href="events.html">活动</a></li>
-											<li><a href="/photo">官方返图</a></li>
-											<li><a href="#">关于我们</a></li>
-										</ul>
-									</div>
-								</li>
-							</ul>
-						</nav>
-					</header>
-
-				<!-- Banner -->
-					<section id="banner">
-						<div class="inner">
-							<h2>天兽汇</h2>
-							<p>欢迎来到SkyFurry主页<br />
-							目前网站&团队还在建设中…<br /></p>
-							<ul class="actions special">
-								<li><a href="https://space.bilibili.com/3546838955198492" class="button primary">哔哩哔哩</a></li>
-							</ul>
-						</div>
-						<a href="#one" class="more scrolly">更多信息</a>
-					</section>
-
-				<!-- One -->
-					<section id="one" class="wrapper style1 special">
-						<div class="inner">
-							<header class="major">
-								<h2>敬请期待~<br />
-									第一届SkyFurry</h2>
-								<p>详细请前往活动页面<br />
-								需要返图的兽兽请前往官方返图页面</p>
-							</header>
-							<ul class="icons major">
-							</ul>
-						</div>
-					</section>
-
-				<!-- Two -->
-					<section id="two" class="wrapper alt style2">
-						<section class="spotlight">
-							<div class="image"><img src="images/lc_tik.png" alt="" /></div><div class="content">
-								<h2>SkyFurry创始人:<br />
-								皪澄_Tiking</h2>
-								<p>qwq</p>
-							</div>
-						</section>
-						<section class="spotlight">
-							<div class="image"><img src="images/pic02.jpg" alt="" /></div><div class="content">
-								<h2>赞助商1:<br />
-								114514</h2>
-								<p>xwx</p>
-							</div>
-						</section>
-						<section class="spotlight">
-							<div class="image"><img src="images/pic03.jpg" alt="" /></div><div class="content">
-								<h2>赞助商2:<br />
-								1919810</h2>
-								<p>qwq</p>
-							</div>
-						</section>
-					</section>
-
-				<!-- Three -->
-					<section id="three" class="wrapper style3 special">
-						<div class="inner">
-							<header class="major">
-								<h2>第一届 SkyFurry 即将开始!</h2>
-								<p>202x年暑假<br />
-								7月32日—7月34日</p>
-							</header>
-							<ul class="features">
-								<li class="icon fa-paper-plane">
-									<h3>位置</h3>
-									<p>浙江省杭州市西湖中</p>
-								</li>
-								<li class="icon solid fa-laptop">
-									<h3>喵呜~</h3>
-									<p>贴贴~</p>
-								</li>
-								<li class="icon solid fa-code">
-									<h3>源码</h3>
-									<p>请前往<a href="https://github.com/Tiking-owo">GitHub</a></p>
-								</li>
-								<li class="icon solid fa-headphones-alt">
-									<h3>qwq</h3>
-									<p>xwx123</p>
-								</li>
-								<li class="icon fa-heart">
-									<h3>QAQ</h3>
-									<p>ovo</p>
-								</li>
-								<li class="icon fa-flag">
-									<h3>1145</h3>
-									<p>嗷呜~</p>
-								</li>
-							</ul>
-						</div>
-					</section>
-
-				<!-- CTA -->
-					<section id="cta" class="wrapper style4">
-						<div class="inner">
-							<header>
-								<h2>联系方式</h2>
-								<p>QQ群: <a href="https://qm.qq.com/q/Zg3PQ7u0gu">1022886233</a><br />
-							       邮箱: <a href="mailto:tiking@skyfurry.cn">tiking@skyfurry.cn</a><br />
-								   哔哩哔哩: <a href="https://space.bilibili.com/3546838955198492">天兽汇</a><br /></p>
-							</header>
-							<ul class="actions stacked">
-								<li><a href="https://space.bilibili.com/3546838955198492" class="button fit primary">哔哩哔哩</a></li>
-								<li><a href="https://qm.qq.com/q/Zg3PQ7u0gu" class="button fit">加入群聊</a></li>
-							</ul>
-						</div>
-					</section>
-
-				<!-- Footer -->
-					<footer id="footer">
-						<ul class="icons">
-							<li><a href="mailto:tiking@skyfurry.cn" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-						</ul>
-						<ul class="copyright">
-							<li>&copy;2025 天兽汇-SkyFurry</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li><li><a style="text-decoration: none;" href="https://beian.miit.gov.cn/" target="_blank">浙ICP备2025148805号-1</a></li>
-						</ul>
-					</footer>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+    <script src="js/main.js"></script>
+</body>
 </html>
