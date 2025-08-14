@@ -6,7 +6,7 @@
     <title>风羽阁|SkyFurry - 星河兽痕</title>
     <link rel="icon" type="image/png" href="https://www.skyfurry.cn/skyfurry.jpg">
     <style>
-        /* 禁用文本选择 */
+        /* 基础样式 */
         body {
             -webkit-user-select: none;
             -moz-user-select: none;
@@ -47,7 +47,7 @@
             z-index: 1;
         }
         
-        /* 信号干扰层 - 更强烈的效果 */
+        /* 信号干扰层 */
         .interference {
             position: absolute;
             top: 0;
@@ -84,13 +84,72 @@
             justify-content: center;
         }
         
+        /* 主标题样式 - 添加glitch效果 */
         .main-title {
-            font-size: 2rem; /* 保持正常大小 */
+            font-size: 2rem;
             font-weight: bold;
             letter-spacing: 0.1rem;
             margin-bottom: 0.5rem;
-            text-shadow: 0 0 3px #00ff00;
             position: relative;
+            color: #00ff00;
+            text-shadow: 0 0 3px #00ff00;
+        }
+        
+        .glitch {
+            position: relative;
+            color: #00ff00;
+            mix-blend-mode: lighten;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .glitch:before {
+            left: -1px;
+            text-shadow: 1px 0 #ff3b00;
+            animation: glitch-anim-1 2s infinite linear alternate-reverse;
+        }
+        
+        .glitch:after {
+            left: 1px;
+            text-shadow: -1px 0 #00a1d6;
+            animation: glitch-anim-2 2s infinite linear alternate-reverse;
+        }
+        
+        .glitch:before, .glitch:after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            width: 100%;
+            background: rgba(0,0,0,0);
+            clip: rect(0,0,0,0);
+        }
+        
+        @keyframes glitch-anim-1 {
+            0% { clip: rect(32px, 9999px, 12px, 0) }
+            10% { clip: rect(8px, 9999px, 96px, 0) }
+            20% { clip: rect(54px, 9999px, 66px, 0) }
+            30% { clip: rect(32px, 9999px, 36px, 0) }
+            40% { clip: rect(84px, 9999px, 48px, 0) }
+            50% { clip: rect(62px, 9999px, 8px, 0) }
+            60% { clip: rect(28px, 9999px, 98px, 0) }
+            70% { clip: rect(72px, 9999px, 32px, 0) }
+            80% { clip: rect(14px, 9999px, 54px, 0) }
+            90% { clip: rect(38px, 9999px, 80px, 0) }
+            100% { clip: rect(66px, 9999px, 44px, 0) }
+        }
+        
+        @keyframes glitch-anim-2 {
+            0% { clip: rect(66px, 9999px, 44px, 0) }
+            10% { clip: rect(38px, 9999px, 80px, 0) }
+            20% { clip: rect(14px, 9999px, 54px, 0) }
+            30% { clip: rect(72px, 9999px, 32px, 0) }
+            40% { clip: rect(28px, 9999px, 98px, 0) }
+            50% { clip: rect(62px, 9999px, 8px, 0) }
+            60% { clip: rect(84px, 9999px, 48px, 0) }
+            70% { clip: rect(32px, 9999px, 36px, 0) }
+            80% { clip: rect(54px, 9999px, 66px, 0) }
+            90% { clip: rect(8px, 9999px, 96px, 0) }
+            100% { clip: rect(32px, 9999px, 12px, 0) }
         }
         
         .sub-title {
@@ -141,7 +200,7 @@
             margin: 0 2px;
         }
         
-        /* 更强烈的干扰效果 */
+        /* 干扰效果动画 */
         @keyframes interference {
             0% {
                 background-position: 0 0, 0 0;
@@ -165,7 +224,7 @@
             }
         }
         
-        /* 随机水平线干扰 */
+        /* 扫描线效果 */
         .scanlines {
             position: absolute;
             top: 0;
@@ -192,7 +251,7 @@
             }
         }
         
-        /* 随机信号丢失块 */
+        /* 信号丢失块 */
         .signal-loss {
             position: absolute;
             top: 0;
@@ -236,7 +295,7 @@
             }
         }
         
-        /* 底部闪烁效果 */
+        /* 底部闪烁 */
         @keyframes footerFlicker {
             0%, 15%, 25%, 35%, 45%, 55%, 65%, 75%, 85%, 95% {
                 opacity: 0.7;
@@ -254,7 +313,9 @@
     <div class="signal-loss"></div>
     
     <div class="container">
-        <h1 class="main-title">SkyFurry · 02 - 星河兽痕</h1>
+        <h1 class="main-title">
+            <span class="glitch" data-text="SkyFurry · 02 - 星河兽痕">SkyFurry · 02 - 星河兽痕</span>
+        </h1>
         <p class="sub-title">敬请期待</p>
         <p class="sub-title-en">Coming Soon</p>
     </div>
@@ -280,7 +341,6 @@
         
         // 禁用键盘快捷键
         document.addEventListener('keydown', function(e) {
-            // 禁用F12、Ctrl+Shift+I、Ctrl+Shift+J、Ctrl+U等
             if (e.key === 'F12' || 
                 (e.ctrlKey && e.shiftKey && e.key === 'I') || 
                 (e.ctrlKey && e.shiftKey && e.key === 'J') || 
@@ -292,22 +352,18 @@
             }
         });
         
-        // 更频繁的信号干扰
-        const mainTitle = document.querySelector('.main-title');
+        // 信号干扰效果
+        const mainTitle = document.querySelector('.main-title .glitch');
         const originalText = mainTitle.textContent;
         
         function simulateSignalLoss() {
-            // 60%的几率添加干扰（更高频率）
             if(Math.random() < 0.6) {
                 let distortedText = '';
                 for(let i = 0; i < originalText.length; i++) {
-                    // 每个字符有50%的几率被替换（更高频率）
                     if(Math.random() < 0.5) {
                         if(Math.random() < 0.7) {
-                            // 替换为随机ASCII字符
                             distortedText += String.fromCharCode(33 + Math.floor(Math.random() * 94));
                         } else {
-                            // 替换为空格
                             distortedText += ' ';
                         }
                     } else {
@@ -315,27 +371,22 @@
                     }
                 }
                 mainTitle.textContent = distortedText;
+                mainTitle.setAttribute('data-text', distortedText);
                 
-                // 随机改变颜色
                 const colors = ['#00ff00', '#00cc00', '#009900', '#00ff66', '#00ffaa'];
-                mainTitle.style.color = colors[Math.floor(Math.random() * colors.length)];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                mainTitle.style.color = color;
                 
-                // 随机偏移
-                mainTitle.style.transform = `translate(${Math.random() * 6 - 3}px, ${Math.random() * 3 - 1.5}px)`;
-                
-                // 更快的恢复（200ms）
                 setTimeout(() => {
                     mainTitle.textContent = originalText;
+                    mainTitle.setAttribute('data-text', originalText);
                     mainTitle.style.color = '#00ff00';
-                    mainTitle.style.transform = 'translate(0)';
                 }, 200);
             }
             
-            // 更短的间隔（300-800ms）
             setTimeout(simulateSignalLoss, Math.random() * 500 + 300);
         }
         
-        // 立即启动干扰效果
         simulateSignalLoss();
         
         // 背景信号丢失效果
@@ -344,7 +395,6 @@
             loss.style.opacity = '0';
             loss.style.transform = 'translateY(0)';
             
-            // 随机时间后触发
             setTimeout(() => {
                 loss.style.opacity = '0.8';
                 loss.style.transform = 'translateY(-50px)';
@@ -353,7 +403,6 @@
                     loss.style.opacity = '0';
                 }, 500);
                 
-                // 下次触发
                 setTimeout(backgroundSignalLoss, Math.random() * 5000 + 3000);
             }, Math.random() * 10000);
         }
