@@ -680,17 +680,6 @@
         const hasVisited = localStorage.getItem('hasVisited');
         const welcomeToast = document.getElementById('welcome-toast');
 
-        if (hasVisited) {
-            document.getElementById('splash-screen').style.display = 'none';
-            document.getElementById('main-content').style.display = 'block';
-            setTimeout(() => {
-                welcomeToast.classList.add('show');
-                setTimeout(() => welcomeToast.classList.remove('show'), 3000);
-            }, 1000);
-        } else {
-            setupFirstVisit();
-        }
-
         function setupFirstVisit() {
             let pressTimer;
             const progressBar = document.getElementById('progress-bar');
@@ -748,7 +737,7 @@
                 document.getElementById('main-content').style.display = 'block';
                 
                 // 设置访问记录
-                localStorage.setItem('hasVisited', 'true');
+                // localStorage.setItem('hasVisited', 'true');
                 
                 // 显示欢迎弹窗
                 setTimeout(() => {
